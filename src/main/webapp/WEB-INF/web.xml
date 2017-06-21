@@ -15,7 +15,7 @@
 	<!-- 读取spring配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:conf/beans.xml;classpath:conf/spring-shiro.xml</param-value>
+		<param-value>classpath:conf/beans.xml;classpath:conf/spring-shiro.xml;classpath:conf/activemq.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
