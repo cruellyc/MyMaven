@@ -30,8 +30,8 @@ import com.lyc.service.ProducerService;
 @Controller
 public class QueueTestController {
 	// 队列名gzframe.demo
-	@Resource(name = "demoQueueDestination")
-	private Destination demoQueueDestination;
+	@Resource(name = "lycQueueDestination")
+	private Destination lycQueueDestination;
 
 	// 队列消息生产者
 	@Resource(name = "producerService")
@@ -60,7 +60,7 @@ public class QueueTestController {
 	public ModelAndView producer(@RequestParam("message") String message) {
 		System.out.println("------------send to jms");
 		ModelAndView mv = new ModelAndView();
-		producer.sendMessage(demoQueueDestination, message);
+		producer.sendMessage(lycQueueDestination, message);
 		mv.setViewName("welcome");
 		return mv;
 	}
@@ -70,7 +70,7 @@ public class QueueTestController {
 		System.out.println("------------receive message");
 		ModelAndView mv = new ModelAndView();
 
-		TextMessage tm = consumer.receive(demoQueueDestination);
+		TextMessage tm = consumer.receive(lycQueueDestination);
 		mv.addObject("textMessage", tm.getText());
 
 		mv.setViewName("queue_receive");
